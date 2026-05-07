@@ -216,6 +216,44 @@
       font-size: 12px;
     }
 
+    /* ── ROLES ── */
+    .roles-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .role-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      background: var(--bg);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .role-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(33,150,243,0.09);
+    }
+    .role-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .role-icon {
+      width: 34px; height: 34px;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .role-icon.dev   { background: linear-gradient(135deg,#1565c0,#2196f3); }
+    .role-icon.ana   { background: linear-gradient(135deg,#00838f,#00bcd4); }
+    .role-icon.lead  { background: linear-gradient(135deg,#4527a0,#7c4dff); }
+    .role-card-title { font-weight: 700; font-size: 14px; color: var(--dark); }
+    .role-card-sub   { font-size: 12px; color: var(--muted); margin-top: 1px; }
+
     /* ── PROYECTOS ── */
     .project {
       border: 1px solid var(--border);
@@ -457,19 +495,71 @@
       <div class="job-header">
         <div>
           <div class="job-company">Grupo Mayorista S.A — GRUMA</div>
-          <div class="job-role">Desarrollador Full Stack · Analista de Sistemas · Líder de Soporte IT</div>
+          <div class="job-role">Cali, Colombia</div>
         </div>
         <span class="job-period">2020 — Presente</span>
       </div>
-      <ul class="resp-list">
-        <li>Liderazgo del equipo de soporte IT: coordinación de incidentes, asignación de tareas y gestión de escalamientos.</li>
-        <li>Gestión y control de equipos tecnológicos en alquiler, incluyendo seguimiento de contratos y estado operativo.</li>
-        <li>Soporte técnico y funcional al aplicativo ERP <strong>SIESA M6</strong> para todos los usuarios de la organización.</li>
-        <li>Soporte a los desarrollos internos: pruebas, despliegues, control de versiones y atención de requerimientos.</li>
-        <li>Control y actualización del inventario de activos tecnológicos de la empresa.</li>
-        <li>Diseño de cronogramas y automatización de flujos de trabajo con <strong>Power Automate</strong> y <strong>SharePoint</strong>.</li>
-        <li>Administración de servidores web (IIS + Apache) y bases de datos en infraestructura local y AWS RDS.</li>
-      </ul>
+
+      <div class="roles-grid">
+
+        <!-- ROL 1: Desarrollador -->
+        <div class="role-card">
+          <div class="role-card-header">
+            <div class="role-icon dev"><i class="fa-solid fa-code"></i></div>
+            <div>
+              <div class="role-card-title">Desarrollador Full Stack</div>
+              <div class="role-card-sub">Desarrollo de aplicaciones web empresariales</div>
+            </div>
+          </div>
+          <ul class="resp-list">
+            <li>Diseño y desarrollo de aplicaciones web full stack integradas con el ERP <strong>SIESA M6</strong> vía SQL Server en AWS RDS.</li>
+            <li>Construcción del CRM corporativo con dashboard de KPIs, pipeline Kanban y chat IA con Claude (Anthropic).</li>
+            <li>Desarrollo de la plataforma <strong>HelpDesk Pro</strong> con autenticación Azure AD OAuth2, notificaciones por Microsoft Graph API y Teams.</li>
+            <li>Desarrollo del sistema <strong>GRUMALog</strong> para logística y programación de producción con Yii2 (MVC).</li>
+            <li>Implementación de APIs REST, stored procedures, vistas y manejo avanzado de SQL Server y PostgreSQL.</li>
+            <li>Administración del servidor web (IIS + Apache), despliegues y mantenimiento de infraestructura local y cloud.</li>
+          </ul>
+        </div>
+
+        <!-- ROL 2: Analista -->
+        <div class="role-card">
+          <div class="role-card-header">
+            <div class="role-icon ana"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <div>
+              <div class="role-card-title">Analista de Sistemas</div>
+              <div class="role-card-sub">Análisis, integración y soporte a aplicativos</div>
+            </div>
+          </div>
+          <ul class="resp-list">
+            <li>Análisis de requerimientos funcionales y técnicos para el desarrollo de soluciones empresariales.</li>
+            <li>Soporte técnico y funcional al aplicativo ERP <strong>SIESA M6</strong> para todos los usuarios de la organización.</li>
+            <li>Modelado de datos y consultas sobre más de 2800 tablas del ERP para generación de reportes e indicadores.</li>
+            <li>Integración de sistemas internos con plataformas cloud (Azure AD, AWS RDS, Microsoft 365).</li>
+            <li>Documentación de procesos, levantamiento de información y definición de flujos de trabajo.</li>
+            <li>Soporte a los desarrollos internos: pruebas, validaciones, control de versiones y atención de requerimientos.</li>
+          </ul>
+        </div>
+
+        <!-- ROL 3: Líder Soporte -->
+        <div class="role-card">
+          <div class="role-card-header">
+            <div class="role-icon lead"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <div class="role-card-title">Líder de Soporte IT</div>
+              <div class="role-card-sub">Coordinación del equipo y gestión operativa</div>
+            </div>
+          </div>
+          <ul class="resp-list">
+            <li>Liderazgo del equipo de soporte IT: coordinación de incidentes, asignación de tareas y gestión de escalamientos.</li>
+            <li>Gestión y control de equipos tecnológicos en alquiler: seguimiento de contratos, entrega y estado operativo.</li>
+            <li>Control y actualización del inventario de activos tecnológicos de la empresa.</li>
+            <li>Diseño de cronogramas de trabajo y automatización de flujos del personal de soporte con <strong>Power Automate</strong>.</li>
+            <li>Gestión documental y coordinación del equipo mediante <strong>SharePoint</strong>.</li>
+            <li>Garantía de continuidad operativa de los sistemas y plataformas tecnológicas de la organización.</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
 
     <!-- PROYECTOS -->
