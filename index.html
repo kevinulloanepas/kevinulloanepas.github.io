@@ -117,6 +117,27 @@
     }
     .hero-contacts a:hover { color: var(--accent2); }
     .hero-contacts i { color: var(--accent); font-size: 14px; }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: white !important;
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(33,150,243,0.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(33,150,243,0.5);
+      color: white !important;
+    }
+    .btn-download i { font-size: 15px; }
 
     /* ── LAYOUT ── */
     .container {
@@ -465,6 +486,9 @@
         <span><i class="fa-solid fa-phone"></i> 321 874 7094</span>
         <span><i class="fa-solid fa-location-dot"></i> Cali, Colombia</span>
       </div>
+      <a class="btn-download" href="HojaVida_KevinUlloa.pdf" download="HojaVida_KevinIvanUlloaNepas.pdf">
+        <i class="fa-solid fa-file-arrow-down"></i> Descargar Hoja de Vida (PDF)
+      </a>
     </div>
   </div>
 </header>
