@@ -3,845 +3,592 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kevin Iván Ulloa Nepas — Desarrollador Full Stack</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <title>Kevin Ulloa — Desarrollador Full Stack & Líder IT</title>
+  <meta name="description" content="Kevin Iván Ulloa Nepas — Desarrollador Full Stack y Líder de Soporte IT. Sistemas empresariales integrados al ERP SIESA M6." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-    :root {
-      --dark:    #0d1b2a;
-      --mid:     #1b3a5c;
-      --accent:  #2196f3;
-      --accent2: #00bcd4;
-      --light:   #e3f2fd;
-      --text:    #1e293b;
-      --muted:   #64748b;
-      --card:    #ffffff;
-      --bg:      #f0f4f8;
-      --border:  #e2e8f0;
-      --sidebar-text: #cfd8dc;
+    :root{
+      --paper:#F2F3F0; --surface:#FFFFFF; --surface-2:#F7F8F5;
+      --ink:#161A18; --ink-soft:#4B534F; --ink-faint:#828B87;
+      --line:#E4E6E1; --line-soft:#EDEFEA;
+      --brand:#0E4F49; --brand-ink:#0B403B; --brand-soft:#E1EDEB;
+      --signal:#C56B2C; --signal-soft:#F6E7DA;
+      /* hero: fixed dark palette, identical in both themes */
+      --h-bg:#0A1413; --h-bg2:#0E211E; --h-ink:#F4F6F4; --h-soft:#A9BAB4;
+      --h-line:rgba(255,255,255,.12); --h-chip:rgba(255,255,255,.05);
+      --h-brand:#4FC4B5; --h-signal:#E48A4E;
+      --shadow:0 1px 2px rgba(20,26,24,.05), 0 12px 34px rgba(20,26,24,.06);
+      --radius:14px;
     }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 15px;
-      line-height: 1.6;
+    @media (prefers-color-scheme:dark){
+      :root:not([data-theme="light"]){
+        --paper:#0D110F; --surface:#141917; --surface-2:#1A201D;
+        --ink:#E8ECEA; --ink-soft:#9EA8A3; --ink-faint:#6A736F;
+        --line:#252C29; --line-soft:#1E2421;
+        --brand:#5BB8AC; --brand-ink:#7ACABD; --brand-soft:#123430;
+        --signal:#E39758; --signal-soft:#33220F;
+        --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 40px rgba(0,0,0,.45);
+      }
     }
-
-    /* ── HERO ── */
-    .hero {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--mid) 60%, #1565c0 100%);
-      color: white;
-      padding: 80px 5% 60px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -80px; right: -80px;
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: rgba(33,150,243,0.12);
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px; left: 10%;
-      width: 260px; height: 260px;
-      border-radius: 50%;
-      background: rgba(0,188,212,0.10);
-    }
-    .hero-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 48px;
-      position: relative;
-      z-index: 1;
-    }
-    .avatar {
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 48px;
-      font-weight: 700;
-      color: white;
-      flex-shrink: 0;
-      box-shadow: 0 0 0 4px rgba(33,150,243,0.3), 0 8px 32px rgba(0,0,0,0.3);
-    }
-    .hero-text h1 {
-      font-size: clamp(24px, 4vw, 38px);
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      line-height: 1.15;
-    }
-    .hero-text h1 span { color: var(--accent2); }
-    .hero-text .roles {
-      margin-top: 8px;
-      font-size: 14px;
-      color: rgba(255,255,255,0.75);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .role-badge {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 3px 12px;
-      border-radius: 20px;
-      font-size: 12.5px;
-      backdrop-filter: blur(4px);
-    }
-    .hero-contacts {
-      margin-top: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-    }
-    .hero-contacts a, .hero-contacts span {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-size: 13.5px;
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      transition: color .2s;
-    }
-    .hero-contacts a:hover { color: var(--accent2); }
-    .hero-contacts i { color: var(--accent); font-size: 14px; }
-    .btn-download {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 22px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: white !important;
-      font-weight: 600;
-      font-size: 13.5px;
-      padding: 10px 22px;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(33,150,243,0.4);
-      transition: transform .2s, box-shadow .2s;
-    }
-    .btn-download:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(33,150,243,0.5);
-      color: white !important;
-    }
-    .btn-download i { font-size: 15px; }
-
-    /* ── LAYOUT ── */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 48px 5%;
-      display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 32px;
-      align-items: start;
+    :root[data-theme="dark"]{
+      --paper:#0D110F; --surface:#141917; --surface-2:#1A201D;
+      --ink:#E8ECEA; --ink-soft:#9EA8A3; --ink-faint:#6A736F;
+      --line:#252C29; --line-soft:#1E2421;
+      --brand:#5BB8AC; --brand-ink:#7ACABD; --brand-soft:#123430;
+      --signal:#E39758; --signal-soft:#33220F;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 40px rgba(0,0,0,.45);
     }
 
-    /* ── CARDS ── */
-    .card {
-      background: var(--card);
-      border-radius: 16px;
-      padding: 28px 28px 24px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
-      margin-bottom: 24px;
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--paper); color:var(--ink);
+      font-family:"IBM Plex Sans",-apple-system,system-ui,sans-serif;
+      font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
     }
-    .card:last-child { margin-bottom: 0; }
+    .wrap{max-width:1040px; margin:0 auto; padding:0 clamp(18px,4vw,40px)}
+    .icon{width:1em; height:1em; fill:none; stroke:currentColor; stroke-width:1.9;
+      stroke-linecap:round; stroke-linejoin:round; flex-shrink:0}
 
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
+    /* ══ HERO (dark, full-bleed) ══ */
+    .hero{position:relative; overflow:hidden; background:var(--h-bg); color:var(--h-ink)}
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(680px 380px at 85% -10%, rgba(79,196,181,.16), transparent 60%),
+        radial-gradient(520px 340px at 8% 115%, rgba(228,138,78,.13), transparent 60%),
+        linear-gradient(160deg, var(--h-bg) 0%, var(--h-bg2) 100%);
     }
-    .section-title::after {
-      content: '';
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      border-radius: 2px;
+    .hero::after{
+      content:""; position:absolute; inset:0; opacity:.5;
+      background-image:linear-gradient(var(--h-line) 1px, transparent 1px),
+                       linear-gradient(90deg, var(--h-line) 1px, transparent 1px);
+      background-size:52px 52px;
+      -webkit-mask-image:radial-gradient(80% 70% at 50% 30%, #000, transparent 78%);
+              mask-image:radial-gradient(80% 70% at 50% 30%, #000, transparent 78%);
     }
+    .hero .wrap{position:relative; z-index:1; padding-top:clamp(38px,6vw,66px); padding-bottom:clamp(30px,4vw,44px)}
+    .eyebrow{
+      font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:500;
+      letter-spacing:.22em; text-transform:uppercase; color:var(--h-brand);
+      display:flex; align-items:center; gap:12px; margin-bottom:26px;
+    }
+    .eyebrow::before{content:""; width:26px; height:1px; background:var(--h-brand)}
+    .hero-top{display:flex; align-items:flex-start; gap:clamp(18px,3vw,30px)}
+    .monogram{
+      width:72px; height:72px; border-radius:16px; flex-shrink:0;
+      background:linear-gradient(150deg, var(--h-brand), #0E4F49);
+      color:#04100E; display:flex; align-items:center; justify-content:center;
+      font-family:"Bricolage Grotesque",sans-serif; font-weight:800; font-size:28px;
+      letter-spacing:-.02em; box-shadow:0 10px 30px rgba(0,0,0,.4);
+    }
+    h1{
+      font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;
+      font-weight:800; font-size:clamp(36px,7vw,68px); line-height:.95;
+      letter-spacing:-.035em; text-wrap:balance;
+    }
+    h1 .last{
+      background:linear-gradient(100deg, var(--h-brand), #8fe0d4);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .roles{
+      margin-top:14px; font-family:"IBM Plex Mono",monospace; font-size:13px;
+      color:var(--h-soft); display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center;
+    }
+    .roles .sep{color:var(--h-signal); font-weight:600}
+    .valueprop{
+      margin-top:20px; max-width:56ch; font-size:clamp(16px,2vw,19px);
+      line-height:1.5; color:var(--h-ink); font-weight:500;
+    }
+    .valueprop b{
+      color:var(--h-brand); font-weight:600;
+      border-bottom:2px solid rgba(79,196,181,.35); padding-bottom:1px;
+    }
+    .contacts{margin-top:24px; display:flex; flex-wrap:wrap; gap:9px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:"IBM Plex Mono",monospace; font-size:12.5px;
+      color:var(--h-soft); text-decoration:none;
+      background:var(--h-chip); border:1px solid var(--h-line);
+      padding:7px 13px; border-radius:9px; transition:.16s; backdrop-filter:blur(6px);
+    }
+    .chip .icon{font-size:14px; color:var(--h-brand)}
+    a.chip:hover{border-color:var(--h-brand); color:var(--h-ink); transform:translateY(-1px)}
+    .actions{margin-top:22px; display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; gap:9px;
+      font-family:"IBM Plex Sans",sans-serif; font-weight:600; font-size:14px;
+      text-decoration:none; padding:11px 22px; border-radius:11px; transition:.18s; cursor:pointer;
+    }
+    .btn-primary{background:var(--h-brand); color:#04100E; border:1px solid var(--h-brand)}
+    .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(79,196,181,.3); filter:brightness(1.06)}
+    .btn-ghost{background:transparent; color:var(--h-ink); border:1px solid var(--h-line)}
+    .btn-ghost:hover{border-color:var(--h-brand); color:var(--h-brand)}
+    .btn .icon{font-size:16px}
 
-    /* ── PERFIL ── */
-    .perfil p {
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.75;
+    /* ══ STATS BAND ══ */
+    .stats{position:relative; z-index:1; background:var(--h-bg2); border-top:1px solid var(--h-line)}
+    .stats .wrap{padding-top:0; padding-bottom:0}
+    .stats-grid{
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:1px; background:var(--h-line);
+      border-left:1px solid var(--h-line); border-right:1px solid var(--h-line);
     }
-
-    /* ── RESPONSABILIDADES ── */
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
+    .stat{background:var(--h-bg2); padding:22px 20px}
+    .stat .n{
+      font-family:"Bricolage Grotesque",sans-serif; font-weight:800;
+      font-size:clamp(28px,4vw,40px); line-height:1; letter-spacing:-.02em;
+      color:var(--h-ink); font-variant-numeric:tabular-nums;
+      display:flex; align-items:baseline; gap:2px;
     }
-    .job-company {
-      font-weight: 700;
-      font-size: 15.5px;
-      color: var(--dark);
-    }
-    .job-role {
-      color: var(--accent);
-      font-size: 13.5px;
-      font-weight: 600;
-      margin-top: 2px;
-    }
-    .job-period {
-      background: var(--light);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 3px 12px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    .resp-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      margin-top: 8px;
-    }
-    .resp-list li {
-      font-size: 13.5px;
-      color: var(--muted);
-      padding-left: 20px;
-      position: relative;
-      line-height: 1.6;
-    }
-    .resp-list li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 12px;
-    }
-
-    /* ── TIMELINE EXPERIENCIA ── */
-    .timeline {
-      position: relative;
-      padding-left: 24px;
-      margin-top: 8px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 7px; top: 6px; bottom: 6px;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), var(--accent2), #7c4dff);
-      border-radius: 2px;
-    }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 24px;
-    }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot {
-      position: absolute;
-      left: -21px; top: 14px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 0 0 2px var(--accent);
-    }
-    .timeline-dot.dev  { background: #2196f3; box-shadow: 0 0 0 2px #2196f3; }
-    .timeline-dot.ana  { background: #00bcd4; box-shadow: 0 0 0 2px #00bcd4; }
-    .timeline-dot.lead { background: #7c4dff; box-shadow: 0 0 0 2px #7c4dff; }
-    .role-card {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 18px 20px;
-      background: white;
-      transition: border-color .2s, box-shadow .2s, transform .2s;
-    }
-    .role-card:hover {
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      transform: translateX(3px);
-    }
-    .role-card.dev:hover  { border-color: #2196f3; }
-    .role-card.ana:hover  { border-color: #00bcd4; }
-    .role-card.lead:hover { border-color: #7c4dff; }
-    .role-card-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-    .role-card-left { display: flex; align-items: center; gap: 12px; }
-    .role-icon {
-      width: 38px; height: 38px;
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: white;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-    .role-icon.dev  { background: linear-gradient(135deg,#1565c0,#2196f3); }
-    .role-icon.ana  { background: linear-gradient(135deg,#00838f,#00bcd4); }
-    .role-icon.lead { background: linear-gradient(135deg,#4527a0,#7c4dff); }
-    .role-card-title   { font-weight: 700; font-size: 14.5px; color: var(--dark); }
-    .role-card-company { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
-    .role-period {
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 3px 12px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-    .role-period.dev  { background: #e3f2fd; color: #1565c0; }
-    .role-period.ana  { background: #e0f7fa; color: #00838f; }
-    .role-period.lead { background: #ede7f6; color: #4527a0; }
-    .role-period.current::before {
-      content: '● ';
-      font-size: 9px;
+    .stat .n .pre{color:var(--h-signal); font-size:.6em}
+    .stat .n .suf{color:var(--h-brand); font-size:.55em; margin-left:1px}
+    .stat .l{
+      font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.05em;
+      color:var(--h-soft); margin-top:9px; line-height:1.4;
     }
 
-    /* ── PROYECTOS ── */
-    .project {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 16px;
-      transition: box-shadow .25s, transform .25s, border-color .25s;
+    /* ══ BODY LAYOUT ══ */
+    .layout{
+      display:grid; grid-template-columns:1fr 292px; gap:clamp(26px,4vw,48px);
+      align-items:start; padding:clamp(38px,5vw,56px) 0 56px;
     }
-    .project:last-child { margin-bottom: 0; }
-    .project:hover {
-      box-shadow: 0 6px 24px rgba(33,150,243,0.12);
-      transform: translateY(-2px);
-      border-color: var(--accent);
-    }
-    .project-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .project-name {
-      font-weight: 700;
-      font-size: 15px;
-      color: var(--dark);
-    }
-    .project-icon {
-      width: 36px; height: 36px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      display: flex; align-items: center; justify-content: center;
-      color: white;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-    .project-desc {
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-    .project-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      margin-bottom: 12px;
-    }
-    .project-bullets li {
-      font-size: 13px;
-      color: var(--muted);
-      padding-left: 18px;
-      position: relative;
-    }
-    .project-bullets li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent2);
-      font-size: 11px;
-    }
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .tech-tag {
-      background: #f0f7ff;
-      color: #1565c0;
-      font-size: 11.5px;
-      font-weight: 500;
-      padding: 2px 10px;
-      border-radius: 20px;
-      font-family: 'Fira Code', monospace;
-      border: 1px solid #bbdefb;
+    section{margin-bottom:38px}
+    section:last-child{margin-bottom:0}
+    .s-head{display:flex; align-items:baseline; gap:12px; margin-bottom:20px}
+    .s-num{font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600; color:var(--signal); letter-spacing:.05em}
+    .s-title{font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:21px; letter-spacing:-.01em; color:var(--ink)}
+    .s-rule{flex:1; height:1px; background:var(--line); align-self:center}
+
+    .perfil{font-size:15.5px; color:var(--ink-soft); line-height:1.75; max-width:64ch}
+    .perfil strong{color:var(--ink); font-weight:600}
+
+    /* timeline */
+    .timeline{position:relative; padding-left:26px}
+    .timeline::before{content:""; position:absolute; left:6px; top:8px; bottom:8px; width:2px;
+      background:linear-gradient(var(--brand), var(--signal)); border-radius:2px; opacity:.55}
+    .exp{position:relative; padding-bottom:26px}
+    .exp:last-child{padding-bottom:0}
+    .exp::before{content:""; position:absolute; left:-26px; top:6px; width:12px; height:12px; border-radius:50%;
+      background:var(--surface); border:2.5px solid var(--brand)}
+    .exp.now::before{border-color:var(--signal); box-shadow:0 0 0 4px var(--signal-soft)}
+    .exp-head{display:flex; justify-content:space-between; gap:10px 16px; flex-wrap:wrap; align-items:baseline}
+    .exp-role{font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:16.5px; color:var(--ink)}
+    .exp-co{font-size:13px; color:var(--ink-faint); margin-top:2px}
+    .exp-period{font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500;
+      color:var(--brand); background:var(--brand-soft); padding:3px 11px; border-radius:20px; white-space:nowrap}
+    .exp.now .exp-period{color:var(--signal); background:var(--signal-soft)}
+    .exp.now .exp-period::before{content:"● "; font-size:8px; vertical-align:middle}
+    .exp ul{list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:7px}
+    .exp li{position:relative; padding-left:19px; font-size:13.8px; color:var(--ink-soft); line-height:1.55}
+    .exp li::before{content:""; position:absolute; left:2px; top:8px; width:6px; height:6px; border-radius:1.5px;
+      background:var(--brand); transform:rotate(45deg)}
+    .exp li strong{color:var(--ink); font-weight:600}
+
+    /* proyectos */
+    .proj{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+      padding:20px 22px; margin-bottom:14px; transition:.2s}
+    .proj:hover{border-color:var(--brand); box-shadow:var(--shadow); transform:translateY(-2px)}
+    .proj-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .proj-name{font-family:"Bricolage Grotesque",sans-serif; font-weight:700; font-size:16px; color:var(--ink)}
+    .proj-kind{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--signal); letter-spacing:.04em}
+    .proj-desc{font-size:13.5px; color:var(--ink-soft); margin:7px 0 11px; line-height:1.6}
+    .proj ul{list-style:none; display:flex; flex-direction:column; gap:5px; margin-bottom:13px}
+    .proj li{position:relative; padding-left:17px; font-size:13px; color:var(--ink-soft); line-height:1.55}
+    .proj li::before{content:"›"; position:absolute; left:2px; top:-1px; color:var(--brand); font-weight:700}
+    .tags{display:flex; flex-wrap:wrap; gap:6px}
+    .tag{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--brand-ink);
+      background:var(--brand-soft); padding:3px 9px; border-radius:6px}
+    .others{background:var(--surface-2); border:1px dashed var(--line); border-radius:var(--radius); padding:16px 20px}
+    .others-label{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em;
+      text-transform:uppercase; color:var(--ink-faint); margin-bottom:10px}
+    .others .tags .tag{background:transparent; border:1px solid var(--line); color:var(--ink-soft)}
+
+    /* sidebar */
+    aside{position:sticky; top:24px; display:flex; flex-direction:column; gap:22px}
+    .panel{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 20px 18px}
+    .panel h3{font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:600; letter-spacing:.14em;
+      text-transform:uppercase; color:var(--ink-faint); display:flex; align-items:center; gap:9px; margin-bottom:15px}
+    .panel h3 .n{color:var(--signal)}
+    .stack-group{margin-bottom:14px}
+    .stack-group:last-child{margin-bottom:0}
+    .stack-cat{font-size:12px; font-weight:600; color:var(--ink-soft); margin-bottom:7px}
+    .stack-tags{display:flex; flex-wrap:wrap; gap:6px}
+    .stack-tags span{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-soft);
+      background:var(--surface-2); border:1px solid var(--line-soft); padding:3px 9px; border-radius:6px}
+    .stack-tags span.core{color:var(--brand-ink); background:var(--brand-soft); border-color:transparent; font-weight:500}
+    .edu{display:flex; flex-direction:column; gap:13px}
+    .edu-item{display:flex; gap:11px}
+    .edu-mark{width:8px; height:8px; border-radius:2px; background:var(--brand); margin-top:6px; flex-shrink:0; transform:rotate(45deg)}
+    .edu-title{font-weight:600; font-size:13.5px; color:var(--ink)}
+    .edu-inst{font-size:12.5px; color:var(--ink-faint); margin-top:1px}
+    .lang{display:flex; flex-direction:column}
+    .lang-row{display:flex; align-items:center; justify-content:space-between; padding:8px 0; border-top:1px solid var(--line-soft); font-size:13.5px}
+    .lang-row:first-child{border-top:none}
+    .lang-lvl{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--brand); background:var(--brand-soft); padding:2px 10px; border-radius:20px}
+
+    footer{border-top:1px solid var(--line); padding:24px 0 34px}
+    .foot-inner{display:flex; flex-wrap:wrap; gap:6px 20px; justify-content:space-between;
+      font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-faint)}
+    footer a{color:var(--brand); text-decoration:none}
+
+    .toggle{position:fixed; top:16px; right:16px; z-index:20; width:38px; height:38px; border-radius:10px; cursor:pointer;
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); color:#fff;
+      display:flex; align-items:center; justify-content:center; transition:.16s; backdrop-filter:blur(6px)}
+    .toggle:hover{border-color:var(--h-brand); color:var(--h-brand)}
+    .toggle .icon{font-size:17px}
+    .toggle .moon{display:none}
+    :root[data-theme="dark"] .toggle .sun{display:none}
+    :root[data-theme="dark"] .toggle .moon{display:block}
+    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .toggle .sun{display:none} :root:not([data-theme="light"]) .toggle .moon{display:block}}
+
+    /* responsive */
+    @media (max-width:840px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:780px){.layout{grid-template-columns:1fr} aside{position:static; margin-top:8px}}
+    @media (max-width:480px){
+      .hero-top{flex-direction:column} .exp-head{flex-direction:column; gap:4px}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
     }
 
-    /* ── SIDEBAR ── */
-    .sidebar .card { margin-bottom: 20px; }
-
-    /* Skills */
-    .skill-item { margin-bottom: 13px; }
-    .skill-item:last-child { margin-bottom: 0; }
-    .skill-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 5px;
-      color: var(--text);
-    }
-    .skill-label span { color: var(--accent); font-weight: 600; }
-    .skill-bar {
-      height: 6px;
-      background: var(--border);
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .skill-fill {
-      height: 100%;
-      border-radius: 6px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      transition: width 1s ease;
+    /* motion */
+    @keyframes fadeUp{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none}}
+    .anim{animation:fadeUp .55s cubic-bezier(.22,.61,.36,1) both}
+    .d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.19s}
+    .d4{animation-delay:.26s}.d5{animation-delay:.33s}
+    @media (prefers-reduced-motion:reduce){
+      .anim{animation:none} html{scroll-behavior:auto}
+      .proj:hover,.btn:hover,a.chip:hover{transform:none}
     }
 
-    /* Tag cloud */
-    .tag-cloud { display: flex; flex-wrap: wrap; gap: 7px; }
-    .tag {
-      background: var(--dark);
-      color: var(--sidebar-text);
-      font-size: 11.5px;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-family: 'Fira Code', monospace;
+    /* print — compact 1–2 page layout */
+    @media print{
+      @page{size:Letter; margin:10mm 12mm}
+      :root{--paper:#fff; --surface:#fff; --ink:#111; --ink-soft:#3a3a3a; --ink-faint:#666;
+        --line:#d4d4d4; --line-soft:#e6e6e6; --brand:#0E4F49; --brand-ink:#0B403B;
+        --brand-soft:#eef4f2; --signal:#B65E22; --signal-soft:#f6ece2}
+      *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+      .toggle,.stats,.actions{display:none !important}
+      .anim{animation:none !important}
+      .hero{background:#fff; color:#111}
+      .hero::before,.hero::after{display:none}
+      .hero .wrap{padding:0 0 8px}
+      .eyebrow{color:var(--brand); margin-bottom:8px; font-size:9px}
+      .eyebrow::before{background:var(--brand)}
+      .hero-top{gap:15px}
+      .monogram{width:50px; height:50px; font-size:19px; border-radius:10px; background:var(--brand); color:#fff; box-shadow:none}
+      h1{font-size:29px}
+      h1 .last{-webkit-text-fill-color:var(--brand); color:var(--brand)}
+      .roles{color:#444; margin-top:5px; font-size:10px}
+      .roles .sep{color:var(--signal)}
+      .valueprop{color:#222; font-size:10.5px; margin-top:8px; max-width:none; font-weight:500}
+      .valueprop b{color:var(--brand); border:none; padding:0}
+      .contacts{margin-top:11px; gap:6px}
+      .chip{color:#333; background:#fff; border:1px solid #ccc; padding:4px 9px; font-size:9.5px; backdrop-filter:none}
+      .chip .icon{color:var(--brand)}
+      body{font-size:9.3pt; line-height:1.4}
+      .wrap{max-width:none; padding:0}
+      .layout{grid-template-columns:1fr 210px; gap:18px; padding:8px 0 0}
+      section{margin-bottom:11px}
+      .s-head{margin-bottom:8px}
+      .s-num{font-size:9px}
+      .s-title{font-size:14px}
+      .perfil{font-size:9.6px; line-height:1.45; max-width:none}
+      .timeline{padding-left:17px}
+      .timeline::before{opacity:.7}
+      .exp{padding-bottom:11px}
+      .exp::before{width:9px; height:9px; left:-23px; box-shadow:none}
+      .exp.now::before{box-shadow:none}
+      .exp ul{margin-top:6px; gap:3px}
+      .exp li{font-size:9.3px; line-height:1.35; padding-left:14px}
+      .exp-role{font-size:11.5px}
+      .exp-co{font-size:9.3px}
+      .exp-period{font-size:8.7px; padding:2px 8px}
+      .proj{padding:10px 12px; margin-bottom:7px; border-color:#dcdcdc}
+      .proj-name{font-size:11.5px}
+      .proj-kind{font-size:8.7px}
+      .proj-desc{font-size:9.3px; margin:4px 0 5px}
+      .proj ul{gap:2px; margin-bottom:6px}
+      .proj li{font-size:9.1px; line-height:1.33}
+      .tag,.stack-tags span{font-size:8.4px; padding:2px 6px}
+      .others{padding:8px 11px}
+      .others-label{margin-bottom:6px; font-size:9px}
+      .panel{padding:11px 12px}
+      .panel h3{font-size:9.3px; margin-bottom:8px}
+      .stack-group{margin-bottom:8px}
+      .stack-cat{font-size:9.6px; margin-bottom:4px}
+      .edu{gap:8px} .edu-title{font-size:10px} .edu-inst{font-size:9px}
+      .lang-row{padding:5px 0; font-size:10px} .lang-lvl{font-size:9px}
+      footer{padding:10px 0 0; margin-top:8px}
+      .foot-inner{font-size:8.6px}
+      .proj,.panel,.exp{break-inside:avoid; box-shadow:none}
+      a{color:#111 !important}
     }
-
-    /* Edu */
-    .edu-item { margin-bottom: 12px; }
-    .edu-item:last-child { margin-bottom: 0; }
-    .edu-title { font-weight: 600; font-size: 13.5px; color: var(--dark); }
-    .edu-inst { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
-
-    /* Idiomas */
-    .lang-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 13px;
-      padding: 6px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .lang-item:last-child { border-bottom: none; }
-    .lang-level {
-      background: var(--light);
-      color: var(--accent);
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 2px 10px;
-      border-radius: 20px;
-    }
-
-    /* Competencias */
-    .comp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .comp-item {
-      background: var(--bg);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--text);
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      line-height: 1.4;
-    }
-    .comp-item i { color: var(--accent); margin-top: 2px; flex-shrink: 0; }
-
-    /* ── FOOTER ── */
-    footer {
-      text-align: center;
-      padding: 28px 5%;
-      color: var(--muted);
-      font-size: 12.5px;
-      background: var(--dark);
-      color: rgba(255,255,255,0.4);
-      margin-top: 8px;
-    }
-    footer a { color: var(--accent2); text-decoration: none; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 720px) {
-      .container { grid-template-columns: 1fr; }
-      .hero-inner { flex-direction: column; text-align: center; }
-      .hero-contacts { justify-content: center; }
-      .comp-grid { grid-template-columns: 1fr; }
-    }
-
-    /* Smooth entrance */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .card { animation: fadeUp .4s ease both; }
-    .card:nth-child(1) { animation-delay: .05s; }
-    .card:nth-child(2) { animation-delay: .10s; }
-    .card:nth-child(3) { animation-delay: .15s; }
-    .card:nth-child(4) { animation-delay: .20s; }
   </style>
 </head>
 <body>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-inner">
-    <div class="avatar">KU</div>
-    <div class="hero-text">
-      <h1>Kevin Iván <span>Ulloa Nepas</span></h1>
-      <div class="roles">
-        <span class="role-badge"><i class="fa-solid fa-code"></i> Desarrollador Full Stack</span>
-        <span class="role-badge"><i class="fa-solid fa-server"></i> Analista de Sistemas</span>
-        <span class="role-badge"><i class="fa-solid fa-headset"></i> Líder de Soporte IT</span>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M9 8h.01M9 12h.01M9 16h.01M15 8h.01M15 12h.01M15 16h.01"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 13l1 4v3a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5m12 4.5v-3.2a2.8 2.8 0 0 0-.8-2.2c2.7-.3 5.5-1.3 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.3 4.3 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6.2 0C6.6 3.4 5.6 3.7 5.6 3.7a4.3 4.3 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 10c0 4.6 2.8 5.7 5.5 6a2.8 2.8 0 0 0-.8 2.1V21"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  </svg>
+
+  <button class="toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema claro / oscuro">
+    <svg class="icon sun"><use href="#i-sun"/></svg>
+    <svg class="icon moon"><use href="#i-moon"/></svg>
+  </button>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow anim">Currículum Vitae · 2026</div>
+      <div class="hero-top">
+        <div class="monogram anim">KU</div>
+        <div>
+          <h1 class="anim d1">Kevin Iván <span class="last">Ulloa Nepas</span></h1>
+          <div class="roles anim d2">
+            <span>Desarrollador Full Stack</span><span class="sep">/</span>
+            <span>Analista de Sistemas</span><span class="sep">/</span>
+            <span>Líder de Soporte IT</span>
+          </div>
+          <p class="valueprop anim d3">
+            Construyo el software que <b>mueve la operación de una compañía</b>: sistemas
+            web full stack integrados al ERP <b>SIESA M6</b> que conectan lo comercial,
+            lo logístico y el soporte — del modelo de datos a la interfaz.
+          </p>
+          <div class="contacts anim d4">
+            <a class="chip" href="mailto:kevinulloa@gruma.com.co"><svg class="icon"><use href="#i-building"/></svg> kevinulloa@gruma.com.co</a>
+            <a class="chip" href="mailto:Kevinulloa994@gmail.com"><svg class="icon"><use href="#i-mail"/></svg> Kevinulloa994@gmail.com</a>
+            <span class="chip"><svg class="icon"><use href="#i-phone"/></svg> 321 874 7094</span>
+            <span class="chip"><svg class="icon"><use href="#i-pin"/></svg> Cali, Colombia</span>
+          </div>
+          <div class="actions anim d5">
+            <a class="btn btn-primary" href="HojaVida_KevinUlloa.pdf" download="HojaVida_KevinIvanUlloaNepas.pdf">
+              <svg class="icon"><use href="#i-download"/></svg> Descargar PDF
+            </a>
+            <a class="btn btn-ghost" href="https://github.com/kevinulloanepas" target="_blank" rel="noopener">
+              <svg class="icon"><use href="#i-github"/></svg> GitHub
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="hero-contacts">
-        <a href="mailto:Kevinulloa994@gmail.com"><i class="fa-solid fa-envelope"></i> Kevinulloa994@gmail.com</a>
-        <a href="mailto:kevinulloa@gruma.com.co"><i class="fa-solid fa-building"></i> kevinulloa@gruma.com.co</a>
-        <span><i class="fa-solid fa-phone"></i> 321 874 7094</span>
-        <span><i class="fa-solid fa-location-dot"></i> Cali, Colombia</span>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="wrap">
+        <div class="stats-grid anim d5">
+          <div class="stat"><div class="n"><span class="pre">+</span><span data-count="15">0</span></div><div class="l">Sistemas y módulos<br>en producción</div></div>
+          <div class="stat"><div class="n"><span class="pre">+</span><span data-count="4">0</span><span class="suf">años</span></div><div class="l">De experiencia<br>en GRUMA</div></div>
+          <div class="stat"><div class="n"><span class="pre">+</span><span data-count="2800">0</span></div><div class="l">Tablas del ERP<br>SIESA integradas</div></div>
+          <div class="stat"><div class="n"><span data-count="3">0</span></div><div class="l">Roles: dev, análisis<br>y liderazgo IT</div></div>
+        </div>
       </div>
-      <a class="btn-download" href="HojaVida_KevinUlloa.pdf" download="HojaVida_KevinIvanUlloaNepas.pdf">
-        <i class="fa-solid fa-file-arrow-down"></i> Descargar Hoja de Vida (PDF)
-      </a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="layout">
+
+      <main>
+        <!-- 01 PERFIL -->
+        <section class="anim">
+          <div class="s-head"><span class="s-num">01</span><span class="s-title">Perfil</span><span class="s-rule"></span></div>
+          <p class="perfil">
+            Ingeniero de sistemas enfocado en <strong>aplicaciones web full stack integradas al ERP SIESA M6</strong>,
+            con más de <strong>15 sistemas y módulos en producción</strong> que sostienen la operación comercial,
+            logística y administrativa de la compañía. Diseño de punta a punta —del modelo de datos y las APIs hasta
+            la interfaz— integrando <strong>SQL Server (AWS RDS), Azure AD, Microsoft 365 e inteligencia artificial</strong>.
+            Además <strong>lidero el equipo de Soporte IT</strong>: incidentes, activos tecnológicos, equipos en alquiler
+            y automatización de flujos con Power Automate y SharePoint.
+          </p>
+        </section>
+
+        <!-- 02 EXPERIENCIA -->
+        <section class="anim">
+          <div class="s-head"><span class="s-num">02</span><span class="s-title">Experiencia</span><span class="s-rule"></span></div>
+          <div class="timeline">
+            <div class="exp now">
+              <div class="exp-head"><div>
+                <div class="exp-role">Desarrollador Full Stack</div>
+                <div class="exp-co">Grupo Mayorista S.A — GRUMA · Cali, Colombia</div></div>
+                <span class="exp-period">2023 — Presente</span></div>
+              <ul>
+                <li>Diseño y desarrollo de aplicaciones web full stack integradas al ERP <strong>SIESA M6</strong> vía SQL Server en AWS RDS.</li>
+                <li>Construcción del <strong>CRM corporativo</strong>: dashboards de KPIs, pipeline Kanban, módulo financiero y chat con IA.</li>
+                <li>Desarrollo de <strong>HelpDesk Pro</strong> con Azure AD OAuth2 y notificaciones vía Microsoft Graph y Teams.</li>
+                <li>Ecosistema <strong>GRUMALog</strong> (logística, despacho, traspasos y producción) con Yii2 MVC e integración bidireccional a SIESA.</li>
+                <li>APIs REST, procedimientos almacenados y optimización de rendimiento sobre SQL Server y PostgreSQL.</li>
+                <li>Administración de servidores (IIS + Apache / Linux), despliegues, versionado con Git e infraestructura local y cloud.</li>
+              </ul>
+            </div>
+            <div class="exp now">
+              <div class="exp-head"><div>
+                <div class="exp-role">Líder de Soporte IT</div>
+                <div class="exp-co">Grupo Mayorista S.A — GRUMA · Cali, Colombia</div></div>
+                <span class="exp-period">2023 — Presente</span></div>
+              <ul>
+                <li>Liderazgo del equipo de soporte: coordinación de incidentes, asignación de tareas y escalamientos.</li>
+                <li>Gestión y control de <strong>equipos tecnológicos en alquiler</strong> e inventario de activos IT.</li>
+                <li>Automatización de cronogramas y flujos de trabajo del personal con <strong>Power Automate</strong>.</li>
+                <li>Gestión documental y coordinación del equipo mediante <strong>SharePoint</strong>.</li>
+                <li>Garantía de la continuidad operativa de sistemas y plataformas de la organización.</li>
+              </ul>
+            </div>
+            <div class="exp">
+              <div class="exp-head"><div>
+                <div class="exp-role">Analista de Sistemas</div>
+                <div class="exp-co">Grupo Mayorista S.A — GRUMA · Cali, Colombia</div></div>
+                <span class="exp-period">Nov 2021 — Abr 2023</span></div>
+              <ul>
+                <li>Análisis de requerimientos funcionales y técnicos para soluciones empresariales.</li>
+                <li>Soporte técnico y funcional al ERP <strong>SIESA M6</strong> para toda la organización.</li>
+                <li>Modelado de datos y consultas sobre <strong>+2.800 tablas</strong> del ERP para reportes e indicadores.</li>
+                <li>Integración de sistemas internos con Azure AD, AWS RDS y Microsoft 365.</li>
+                <li>Documentación de procesos, levantamiento de información y definición de flujos de trabajo.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 03 PROYECTOS -->
+        <section class="anim">
+          <div class="s-head"><span class="s-num">03</span><span class="s-title">Proyectos</span><span class="s-rule"></span></div>
+
+          <div class="proj">
+            <div class="proj-head"><span class="proj-name">CRM SIESA</span><span class="proj-kind">GESTIÓN COMERCIAL</span></div>
+            <p class="proj-desc">Plataforma comercial integrada al ERP en tiempo real: seguimiento de ventas, análisis y decisiones asistidas por IA.</p>
+            <ul>
+              <li>Dashboard ejecutivo asíncrono: KPIs, tendencia, rankings de clientes y vendedores.</li>
+              <li>Pipeline Kanban con drag &amp; drop y módulo financiero (P&amp;G, gastos y flujo desde SIESA).</li>
+              <li>Chat con IA (Cerebras + fallback local): lenguaje natural → SQL → datos reales del ERP.</li>
+              <li>Campañas SMS segmentadas y perfilamiento de usuarios por grupos de Active Directory.</li>
+            </ul>
+            <div class="tags"><span class="tag">PHP 8</span><span class="tag">Bootstrap 5</span><span class="tag">Chart.js</span><span class="tag">SQL Server</span><span class="tag">SQLite</span><span class="tag">IA / LLM</span></div>
+          </div>
+
+          <div class="proj">
+            <div class="proj-head"><span class="proj-name">HelpDesk Pro</span><span class="proj-kind">MESA DE AYUDA · M365</span></div>
+            <p class="proj-desc">Gestión de tickets, activos e inventario IT con identidad corporativa Microsoft 365 y asistente IA.</p>
+            <ul>
+              <li>Ciclo completo de tickets con SLA, asignación por área y encuesta de satisfacción.</li>
+              <li>Azure AD OAuth2 desde cero + notificaciones por Microsoft Graph y Teams (sin SMTP).</li>
+              <li>Módulos de activos, licencias de software, préstamos de equipos y sincronización LDAP.</li>
+              <li>Chat IA con herramientas nativas (tool use): tickets, activos, estadísticas y asignación.</li>
+            </ul>
+            <div class="tags"><span class="tag">PHP 8</span><span class="tag">Azure AD</span><span class="tag">Graph API</span><span class="tag">Teams</span><span class="tag">LDAP</span><span class="tag">Claude API</span></div>
+          </div>
+
+          <div class="proj">
+            <div class="proj-head"><span class="proj-name">Ecosistema GRUMALog</span><span class="proj-kind">LOGÍSTICA & PRODUCCIÓN</span></div>
+            <p class="proj-desc">Suite logística Yii2 con integración bidireccional a SIESA para todo el flujo de bodega y distribución.</p>
+            <ul>
+              <li>Despacho, recepción y traspasos entre bodegas con creación automática de documentos en SIESA (3TB/3TP).</li>
+              <li>Olas de distribución, nivelización de inventario y devoluciones con re-sincronización de existencias.</li>
+              <li>Maestro de artículos (Monacho): fichas, generación de EAN-13 e impresión de etiquetas ZPL/MPCL.</li>
+              <li>Integración con sistema Put-to-Light (MuvPut) para picking por luz en el CEDI.</li>
+            </ul>
+            <div class="tags"><span class="tag">PHP 8</span><span class="tag">Yii2 MVC</span><span class="tag">SQL Server</span><span class="tag">Apache</span><span class="tag">SIESA M6</span></div>
+          </div>
+
+          <div class="proj">
+            <div class="proj-head"><span class="proj-name">Control de Visitas</span><span class="proj-kind">ZENTRA GLOBAL · SaaS</span></div>
+            <p class="proj-desc">Plataforma multi-tenant de control de acceso para conjuntos residenciales, desplegada en VPS Linux.</p>
+            <ul>
+              <li>Arquitectura multi-cliente (cliente → sedes → torres → unidades) con 6 roles y aislamiento de datos.</li>
+              <li>Ingreso de empleados por <strong>código QR</strong> con auto-registro de entrada/salida en el kiosco.</li>
+              <li>Reservas de zonas comunes con flujo de aprobación y HTTPS en producción.</li>
+            </ul>
+            <div class="tags"><span class="tag">PHP 8</span><span class="tag">Bootstrap 5</span><span class="tag">PostgreSQL 18</span><span class="tag">Apache</span><span class="tag">Ubuntu / VPS</span></div>
+          </div>
+
+          <div class="others">
+            <div class="others-label">// Otros sistemas en producción</div>
+            <div class="tags">
+              <span class="tag">Portal de Proveedores</span><span class="tag">Portal de Socios</span>
+              <span class="tag">GRUMADm — Administración</span><span class="tag">Control de Acceso SST</span>
+              <span class="tag">HelpDesk multi-tenant</span><span class="tag">Monitor de BD</span><span class="tag">Hub de Enlaces</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside>
+        <div class="panel anim">
+          <h3><span class="n">04</span> Stack técnico</h3>
+          <div class="stack-group"><div class="stack-cat">Backend</div><div class="stack-tags">
+            <span class="core">PHP 8</span><span class="core">Yii2 MVC</span><span>API REST</span><span>SQL avanzado</span></div></div>
+          <div class="stack-group"><div class="stack-cat">Frontend</div><div class="stack-tags">
+            <span class="core">Bootstrap 5</span><span>JS ES6+</span><span>Chart.js</span><span>AJAX</span></div></div>
+          <div class="stack-group"><div class="stack-cat">Datos</div><div class="stack-tags">
+            <span class="core">SQL Server</span><span class="core">PostgreSQL</span><span>SQLite</span><span>SIESA M6</span></div></div>
+          <div class="stack-group"><div class="stack-cat">Cloud & M365</div><div class="stack-tags">
+            <span class="core">Azure AD / OAuth2</span><span>Graph API</span><span>Teams</span><span>Power Automate</span><span>SharePoint</span><span>AWS RDS</span></div></div>
+          <div class="stack-group"><div class="stack-cat">Infra & IA</div><div class="stack-tags">
+            <span>IIS + Apache</span><span>Linux / Windows Server</span><span>Git</span><span class="core">IA / LLM · tool use</span></div></div>
+        </div>
+
+        <div class="panel anim">
+          <h3><span class="n">05</span> Formación</h3>
+          <div class="edu">
+            <div class="edu-item"><span class="edu-mark"></span><div><div class="edu-title">Ingeniería en Sistemas</div><div class="edu-inst">Universidad Santiago de Cali</div></div></div>
+            <div class="edu-item"><span class="edu-mark"></span><div><div class="edu-title">Tecnólogo en Sistemas</div><div class="edu-inst">Universidad Santiago de Cali</div></div></div>
+            <div class="edu-item"><span class="edu-mark"></span><div><div class="edu-title">Primeros Auxilios Básico</div><div class="edu-inst">Cruz Roja Colombiana · 2022</div></div></div>
+          </div>
+        </div>
+
+        <div class="panel anim">
+          <h3><span class="n">06</span> Idiomas</h3>
+          <div class="lang">
+            <div class="lang-row"><span>Español</span><span class="lang-lvl">Nativo</span></div>
+            <div class="lang-row"><span>Inglés técnico</span><span class="lang-lvl">Lectura</span></div>
+          </div>
+        </div>
+      </aside>
     </div>
   </div>
-</header>
 
-<!-- MAIN LAYOUT -->
-<div class="container">
-
-  <!-- COLUMNA PRINCIPAL -->
-  <main>
-
-    <!-- PERFIL -->
-    <div class="card perfil">
-      <div class="section-title"><i class="fa-solid fa-user"></i> Perfil Profesional</div>
-      <p>
-        Profesional en tecnología con experiencia en el desarrollo de soluciones empresariales de alto impacto,
-        especializado en aplicaciones web full stack integradas con sistemas ERP, plataformas cloud e inteligencia
-        artificial. Lidera el grupo de soporte IT, gestionando equipos de alquiler, soporte al aplicativo SIESA M6,
-        soporte a los desarrollos internos, control de activos tecnológicos y elaboración de cronogramas y flujos
-        de trabajo para el personal mediante <strong>Power Automate</strong> y <strong>SharePoint</strong>.
-        Con dominio en PHP 8, Yii2, SQL Server, Azure AD y la API de Claude (Anthropic), ha diseñado e implementado
-        sistemas CRM, mesas de ayuda, logística y control de accesos que optimizan los procesos comerciales y operativos.
-      </p>
+  <footer>
+    <div class="wrap foot-inner">
+      <span>Kevin Iván Ulloa Nepas · C.E. 705562 · Cali, Colombia</span>
+      <span>Actualizado ago 2026 · <a href="https://kevinulloanepas.github.io">kevinulloanepas.github.io</a></span>
     </div>
+  </footer>
 
-    <!-- EXPERIENCIA -->
-    <div class="card">
-      <div class="section-title"><i class="fa-solid fa-briefcase"></i> Experiencia Laboral</div>
+  <script>
+    (function(){
+      var root=document.documentElement, key="cv-theme";
+      try{var s=localStorage.getItem(key); if(s) root.setAttribute("data-theme",s);}catch(e){}
+      function current(){var t=root.getAttribute("data-theme"); return t||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");}
+      var tg=document.getElementById("themeToggle");
+      if(tg) tg.addEventListener("click",function(){var n=current()==="dark"?"light":"dark"; root.setAttribute("data-theme",n); try{localStorage.setItem(key,n);}catch(e){}});
 
-      <div class="timeline">
-
-        <!-- ROL 1: Desarrollador Full Stack -->
-        <div class="timeline-item">
-          <div class="timeline-dot dev"></div>
-          <div class="role-card dev">
-            <div class="role-card-header">
-              <div class="role-card-left">
-                <div class="role-icon dev"><i class="fa-solid fa-code"></i></div>
-                <div>
-                  <div class="role-card-title">Desarrollador Full Stack</div>
-                  <div class="role-card-company"><i class="fa-solid fa-building fa-xs"></i> Grupo Mayorista S.A — GRUMA · Cali, Colombia</div>
-                </div>
-              </div>
-              <span class="role-period dev current">2023 — Presente</span>
-            </div>
-            <ul class="resp-list">
-              <li>Diseño y desarrollo de aplicaciones web full stack integradas con el ERP <strong>SIESA M6</strong> vía SQL Server en AWS RDS.</li>
-              <li>Construcción del CRM corporativo con dashboard de KPIs, pipeline Kanban y chat IA con Claude (Anthropic).</li>
-              <li>Desarrollo de <strong>HelpDesk Pro</strong> con autenticación Azure AD OAuth2, notificaciones vía Microsoft Graph API y Teams.</li>
-              <li>Desarrollo de <strong>GRUMALog</strong> para logística y programación de producción con Yii2 (MVC).</li>
-              <li>Implementación de APIs REST, stored procedures y manejo avanzado de SQL Server y PostgreSQL.</li>
-              <li>Administración del servidor web (IIS + Apache), despliegues y mantenimiento de infraestructura local y cloud (AWS RDS).</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ROL 2: Analista de Sistemas -->
-        <div class="timeline-item">
-          <div class="timeline-dot ana"></div>
-          <div class="role-card ana">
-            <div class="role-card-header">
-              <div class="role-card-left">
-                <div class="role-icon ana"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                <div>
-                  <div class="role-card-title">Analista de Sistemas</div>
-                  <div class="role-card-company"><i class="fa-solid fa-building fa-xs"></i> Grupo Mayorista S.A — GRUMA · Cali, Colombia</div>
-                </div>
-              </div>
-              <span class="role-period ana">Nov 2021 — Abr 2023</span>
-            </div>
-            <ul class="resp-list">
-              <li>Análisis de requerimientos funcionales y técnicos para el desarrollo de soluciones empresariales.</li>
-              <li>Soporte técnico y funcional al aplicativo ERP <strong>SIESA M6</strong> para todos los usuarios de la organización.</li>
-              <li>Modelado de datos y consultas sobre más de 2800 tablas del ERP para generación de reportes e indicadores.</li>
-              <li>Integración de sistemas internos con plataformas cloud (Azure AD, AWS RDS, Microsoft 365).</li>
-              <li>Documentación de procesos, levantamiento de información y definición de flujos de trabajo.</li>
-              <li>Soporte a desarrollos internos: pruebas, validaciones, control de versiones y atención de requerimientos.</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- ROL 3: Líder de Soporte IT -->
-        <div class="timeline-item">
-          <div class="timeline-dot lead"></div>
-          <div class="role-card lead">
-            <div class="role-card-header">
-              <div class="role-card-left">
-                <div class="role-icon lead"><i class="fa-solid fa-headset"></i></div>
-                <div>
-                  <div class="role-card-title">Líder de Soporte IT</div>
-                  <div class="role-card-company"><i class="fa-solid fa-building fa-xs"></i> Grupo Mayorista S.A — GRUMA · Cali, Colombia</div>
-                </div>
-              </div>
-              <span class="role-period lead current">2023 — Presente</span>
-            </div>
-            <ul class="resp-list">
-              <li>Liderazgo del equipo de soporte IT: coordinación de incidentes, asignación de tareas y gestión de escalamientos.</li>
-              <li>Gestión y control de equipos tecnológicos en alquiler: seguimiento de contratos, entrega y estado operativo.</li>
-              <li>Control y actualización del inventario de activos tecnológicos de la empresa.</li>
-              <li>Diseño de cronogramas y automatización de flujos de trabajo del personal de soporte con <strong>Power Automate</strong>.</li>
-              <li>Gestión documental y coordinación del equipo mediante <strong>SharePoint</strong>.</li>
-              <li>Garantía de continuidad operativa de los sistemas y plataformas tecnológicas de la organización.</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- PROYECTOS -->
-    <div class="card">
-      <div class="section-title"><i class="fa-solid fa-rocket"></i> Proyectos Destacados</div>
-
-      <div class="project">
-        <div class="project-header">
-          <div>
-            <div class="project-name">CRM — Sistema de Gestión Comercial</div>
-            <div class="project-desc">Plataforma CRM integrada con ERP SIESA vía SQL Server (AWS RDS) para seguimiento comercial en tiempo real.</div>
-          </div>
-          <div class="project-icon"><i class="fa-solid fa-chart-line"></i></div>
-        </div>
-        <ul class="project-bullets">
-          <li>Dashboard ejecutivo: KPIs de ventas, tendencia 12 meses, rankings de clientes y vendedores.</li>
-          <li>Módulo de clientes con paginación, filtros y análisis de ventas por periodo.</li>
-          <li>Pipeline Kanban con drag &amp; drop nativo y persistencia en SQLite.</li>
-          <li>Chat IA con Claude: preguntas en lenguaje natural → SQL dinámico → datos reales del ERP.</li>
-        </ul>
-        <div class="tech-tags">
-          <span class="tech-tag">PHP 8</span><span class="tech-tag">Bootstrap 5</span>
-          <span class="tech-tag">Chart.js</span><span class="tech-tag">SQL Server</span>
-          <span class="tech-tag">SQLite</span><span class="tech-tag">Claude API</span>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-header">
-          <div>
-            <div class="project-name">HelpDesk Pro — Mesa de Ayuda IT con M365</div>
-            <div class="project-desc">Sistema de gestión de tickets e inventario IT con autenticación corporativa Microsoft 365 y asistente IA.</div>
-          </div>
-          <div class="project-icon"><i class="fa-solid fa-ticket"></i></div>
-        </div>
-        <ul class="project-bullets">
-          <li>Ciclo de vida completo de tickets con control de SLA y asignación por área.</li>
-          <li>Azure AD OAuth2 desde cero, sin dependencias externas.</li>
-          <li>Notificaciones vía Microsoft Graph API (sin SMTP) y Teams Adaptive Cards.</li>
-          <li>Sincronización masiva desde Azure AD y LDAP on-premise.</li>
-          <li>Chat IA con 6 herramientas nativas: tickets, activos, estadísticas y asignación automática.</li>
-        </ul>
-        <div class="tech-tags">
-          <span class="tech-tag">PHP 8</span><span class="tech-tag">Azure AD OAuth2</span>
-          <span class="tech-tag">Graph API</span><span class="tech-tag">Teams</span>
-          <span class="tech-tag">LDAP</span><span class="tech-tag">Claude API</span>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-header">
-          <div>
-            <div class="project-name">GRUMALog — Logística y Programación de Producción</div>
-            <div class="project-desc">Plataforma MVC para gestión operativa de logística, programación y conteo de producción corporativa.</div>
-          </div>
-          <div class="project-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-        </div>
-        <ul class="project-bullets">
-          <li>Módulo de programación de producción con control de estados por área.</li>
-          <li>Módulo de conteo para seguimiento de inventario y resultados.</li>
-          <li>Arquitectura Yii2 MVC con integración a SQL Server corporativo.</li>
-        </ul>
-        <div class="tech-tags">
-          <span class="tech-tag">PHP 8</span><span class="tech-tag">Yii2 MVC</span>
-          <span class="tech-tag">SQL Server</span><span class="tech-tag">Bootstrap</span>
-          <span class="tech-tag">Apache</span>
-        </div>
-      </div>
-
-      <div class="project">
-        <div class="project-header">
-          <div>
-            <div class="project-name">Control de Visitas — Zentra Global</div>
-            <div class="project-desc">Sistema web de control de visitas para conjuntos residenciales con gestión multirol y flujo de aprobación.</div>
-          </div>
-          <div class="project-icon"><i class="fa-solid fa-building-user"></i></div>
-        </div>
-        <ul class="project-bullets">
-          <li>6 roles: superadmin, admin_cliente, portería, residente, colaborador y supervisor.</li>
-          <li>Registro público con aprobación por administrador desde panel de control.</li>
-          <li>PostgreSQL 18 multi-cliente, interfaz responsive optimizada para portería móvil.</li>
-        </ul>
-        <div class="tech-tags">
-          <span class="tech-tag">PHP 8</span><span class="tech-tag">Bootstrap 5</span>
-          <span class="tech-tag">PostgreSQL 18</span><span class="tech-tag">Apache</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- COMPETENCIAS -->
-    <div class="card">
-      <div class="section-title"><i class="fa-solid fa-star"></i> Competencias Clave</div>
-      <div class="comp-grid">
-        <div class="comp-item"><i class="fa-solid fa-database fa-sm"></i> Análisis y modelado de datos empresariales</div>
-        <div class="comp-item"><i class="fa-solid fa-users-gear fa-sm"></i> Liderazgo de soporte IT y equipos</div>
-        <div class="comp-item"><i class="fa-solid fa-plug fa-sm"></i> Integración ERP SIESA M6 vía SQL</div>
-        <div class="comp-item"><i class="fa-solid fa-rotate fa-sm"></i> Automatización con Power Automate</div>
-        <div class="comp-item"><i class="fa-solid fa-robot fa-sm"></i> IA conversacional (LLM + tool use)</div>
-        <div class="comp-item"><i class="fa-brands fa-microsoft fa-sm"></i> Arquitectura de identidad M365</div>
-        <div class="comp-item"><i class="fa-solid fa-code-branch fa-sm"></i> Diseño de APIs REST y backend</div>
-        <div class="comp-item"><i class="fa-solid fa-box fa-sm"></i> Control de activos y alquileres IT</div>
-        <div class="comp-item"><i class="fa-solid fa-chart-bar fa-sm"></i> Dashboards y visualización de datos</div>
-        <div class="comp-item"><i class="fa-solid fa-file-lines fa-sm"></i> Gestión documental con SharePoint</div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-
-    <!-- HABILIDADES -->
-    <div class="card">
-      <div class="section-title"><i class="fa-solid fa-gauge-high"></i> Habilidades</div>
-      <div class="skill-item">
-        <div class="skill-label">PHP 8 / Yii2 <span>92%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-label">SQL Server / PostgreSQL <span>90%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-label">Bootstrap 5 / JS ES6+ <span>88%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-label">Claude API / IA <span>85%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-label">Azure AD / OAuth2 <span>82%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-label">Power Automate <span>78%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-label">SharePoint <span>75%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-label">Windows Server / IIS <span>80%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-      </div>
-    </div>
-
-    <!-- TECNOLOGÍAS -->
-    <div class="card">
-      <div class="section-title"><i class="fa-solid fa-microchip"></i> Tecnologías</div>
-      <div class="tag-cloud">
-        <span class="tag">PHP 8</span><span class="tag">Yii2</span>
-        <span class="tag">Bootstrap 5</span><span class="tag">JS ES6+</span>
-        <span class="tag">Chart.js</span><span class="tag">AJAX</span>
-        <span class="tag">SQL Server</span><span class="tag">PostgreSQL</span>
-        <span class="tag">SQLite</span><span class="tag">REST API</span>
-        <span class="tag">SIESA M6</span><span class="tag">Claude API</span>
-        <span class="tag">Azure AD</span><span class="tag">Graph API</span>
-        <span class="tag">Teams</span><span class="tag">LDAP</span>
-        <span class="tag">Power Automate</span><span class="tag">SharePoint</span>
-        <span class="tag">IIS</span><span class="tag">Apache</span>
-        <span class="tag">AWS RDS</span><span class="tag">OAuth2</span>
-        <span class="tag">JWT</span>
-      </div>
-    </div>
-
-    <!-- FORMACIÓN -->
-    <div class="card">
-      <div class="section-title"><i class="fa-solid fa-graduation-cap"></i> Formación</div>
-      <div class="edu-item">
-        <div class="edu-title">Ingeniería en Sistemas</div>
-        <div class="edu-inst">Universidad Santiago de Cali</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-title">Tecnólogo en Sistemas</div>
-        <div class="edu-inst">Universidad Santiago de Cali</div>
-      </div>
-      <div class="edu-item">
-        <div class="edu-title">Primeros Auxilios Básico</div>
-        <div class="edu-inst">Cruz Roja Colombiana — 2022</div>
-      </div>
-    </div>
-
-    <!-- IDIOMAS -->
-    <div class="card">
-      <div class="section-title"><i class="fa-solid fa-language"></i> Idiomas</div>
-      <div class="lang-item">
-        <span>Español</span>
-        <span class="lang-level">Nativo</span>
-      </div>
-      <div class="lang-item">
-        <span>Inglés Técnico</span>
-        <span class="lang-level">Lectura</span>
-      </div>
-    </div>
-
-  </aside>
-</div>
-
-<footer>
-  <p>Kevin Iván Ulloa Nepas · C.E. 705562 · Cali, Colombia</p>
-  <p style="margin-top:6px; font-size:11px;">Actualizado mayo 2026</p>
-</footer>
+      // count-up for stats (respects reduced motion)
+      var reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+      var nums=[].slice.call(document.querySelectorAll("[data-count]"));
+      function fmt(v){return v>=1000 ? v.toLocaleString("es-CO") : String(v);}
+      if(reduce){ nums.forEach(function(el){el.textContent=fmt(+el.dataset.count);}); return; }
+      function run(el){
+        var target=+el.dataset.count, dur=1100, t0=null;
+        function step(ts){ if(!t0)t0=ts; var p=Math.min((ts-t0)/dur,1);
+          var e=1-Math.pow(1-p,3); el.textContent=fmt(Math.round(target*e));
+          if(p<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step);
+      }
+      if("IntersectionObserver" in window){
+        var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target); io.unobserve(x.target);}});},{threshold:.4});
+        nums.forEach(function(el){io.observe(el);});
+      } else { nums.forEach(run); }
+    })();
+  </script>
 
 </body>
 </html>
