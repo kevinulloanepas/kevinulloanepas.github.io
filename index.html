@@ -474,11 +474,22 @@
             <p class="proj-desc">Plataforma comercial integrada al ERP en tiempo real: seguimiento de ventas, análisis y decisiones asistidas por IA.</p>
             <ul>
               <li>Dashboard ejecutivo asíncrono: KPIs, tendencia, rankings de clientes y vendedores.</li>
-              <li>Pipeline Kanban con drag &amp; drop y módulo financiero (P&amp;G, gastos y flujo desde SIESA).</li>
+              <li>Pipeline comercial tipo Kanban con drag &amp; drop y persistencia de estados.</li>
               <li>Chat con IA (Cerebras + fallback local): lenguaje natural → SQL → datos reales del ERP.</li>
               <li>Campañas SMS segmentadas y perfilamiento de usuarios por grupos de Active Directory.</li>
             </ul>
             <div class="tags"><span class="tag">PHP 8</span><span class="tag">Bootstrap 5</span><span class="tag">Chart.js</span><span class="tag">SQL Server</span><span class="tag">SQLite</span><span class="tag">IA / LLM</span></div>
+          </div>
+
+          <div class="proj">
+            <div class="proj-head"><span class="proj-name">Módulo Financiero</span><span class="proj-kind">P&amp;G · GASTOS · FLUJO</span></div>
+            <p class="proj-desc">Reportería financiera ejecutiva que consume la contabilidad de SIESA para dar visibilidad del resultado del negocio.</p>
+            <ul>
+              <li>Estado de Resultados (P&amp;G), análisis de gastos y flujo de caja desde la vista contable BA_90001 de SIESA.</li>
+              <li>API dedicada (<em>financiero_data.php</em>) con carga asíncrona y visualización en Chart.js.</li>
+              <li>Indicadores y comparativos por periodo como apoyo a la toma de decisiones gerenciales.</li>
+            </ul>
+            <div class="tags"><span class="tag">PHP 8</span><span class="tag">SQL Server</span><span class="tag">Chart.js</span><span class="tag">SIESA · BA_90001</span></div>
           </div>
 
           <div class="proj">
