@@ -24,19 +24,8 @@
       --shadow:0 1px 2px rgba(19,35,58,.05), 0 12px 34px rgba(19,35,58,.07);
       --radius:14px;
     }
-    @media (prefers-color-scheme:dark){
-      :root:not([data-theme="light"]){
-        --paper:#0C1017; --surface:#141A23; --surface-2:#1A222E;
-        --ink:#E9EEF4; --ink-soft:#9DA9B8; --ink-faint:#6B7686;
-        --line:#26303C; --line-soft:#1E2631;
-        --brand:#5AA2E8; --brand-ink:#7DB6EF; --brand-soft:#122B44;
-        --signal:#7DB6EF; --signal-soft:#122334;
-        --h-bg:#0A1220; --h-bg2:#0E1A2C; --h-ink:#EAF1FA; --h-soft:#9DB0C6;
-        --h-line:rgba(255,255,255,.12); --h-chip:rgba(255,255,255,.05);
-        --h-brand:#5AA2E8; --h-signal:#8FBEF2;
-        --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 40px rgba(0,0,0,.45);
-      }
-    }
+    /* Modo oscuro SOLO manual (botón). Por defecto la página es blanca,
+       aunque el sistema esté en tema oscuro. */
     :root[data-theme="dark"]{
       --paper:#0C1017; --surface:#141A23; --surface-2:#1A222E;
       --ink:#E9EEF4; --ink-soft:#9DA9B8; --ink-faint:#6B7686;
@@ -249,7 +238,6 @@
     .toggle .moon{display:none}
     :root[data-theme="dark"] .toggle .sun{display:none}
     :root[data-theme="dark"] .toggle .moon{display:block}
-    @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .toggle .sun{display:none} :root:not([data-theme="light"]) .toggle .moon{display:block}}
 
     /* responsive */
     @media (max-width:840px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
@@ -584,7 +572,7 @@
     (function(){
       var root=document.documentElement, key="cv-theme";
       try{var s=localStorage.getItem(key); if(s) root.setAttribute("data-theme",s);}catch(e){}
-      function current(){var t=root.getAttribute("data-theme"); return t||(window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");}
+      function current(){return root.getAttribute("data-theme")||"light";}
       var tg=document.getElementById("themeToggle");
       if(tg) tg.addEventListener("click",function(){var n=current()==="dark"?"light":"dark"; root.setAttribute("data-theme",n); try{localStorage.setItem(key,n);}catch(e){}});
 
