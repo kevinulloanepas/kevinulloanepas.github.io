@@ -420,7 +420,8 @@
             Ingeniero de sistemas enfocado en <strong>aplicaciones web full stack integradas al ERP SIESA M6</strong>,
             con más de <strong>15 sistemas y módulos en producción</strong> que sostienen la operación comercial,
             logística y administrativa de la compañía. Diseño de punta a punta —del modelo de datos y las APIs hasta
-            la interfaz— integrando <strong>SQL Server (AWS RDS), Azure AD, Microsoft 365 e inteligencia artificial</strong>.
+            la interfaz— integrando <strong>SQL Server (AWS RDS), Azure AD, Microsoft 365 e inteligencia artificial</strong>:
+            asistentes con LLM que consultan datos reales, bots de WhatsApp y visión por computador.
             Además <strong>lidero el equipo de Soporte IT</strong>: incidentes, activos tecnológicos, equipos en alquiler
             y automatización de flujos con Power Automate y SharePoint.
           </p>
@@ -438,10 +439,22 @@
               <ul>
                 <li>Diseño y desarrollo de aplicaciones web full stack integradas al ERP <strong>SIESA M6</strong> vía SQL Server en AWS RDS.</li>
                 <li>Construcción del <strong>CRM corporativo</strong>: dashboards de KPIs, pipeline Kanban, módulo financiero y chat con IA.</li>
+                <li>Desarrollo de <strong>GRUMA AI</strong>: asistente de ventas con Claude (tool use) que responde en lenguaje natural sobre datos del ERP y del CRM.</li>
                 <li>Desarrollo de <strong>HelpDesk Pro</strong> con Azure AD OAuth2 y notificaciones vía Microsoft Graph y Teams.</li>
                 <li>Ecosistema <strong>GRUMALog</strong> (logística, despacho, traspasos y producción) con Yii2 MVC e integración bidireccional a SIESA.</li>
                 <li>APIs REST, procedimientos almacenados y optimización de rendimiento sobre SQL Server y PostgreSQL.</li>
                 <li>Administración de servidores (IIS + Apache / Linux), despliegues, versionado con Git e infraestructura local y cloud.</li>
+              </ul>
+            </div>
+            <div class="exp now">
+              <div class="exp-head"><div>
+                <div class="exp-role">Desarrollador Freelance</div>
+                <div class="exp-co">Zentra Global y clientes independientes · Remoto</div></div>
+                <span class="exp-period">2026 — Presente</span></div>
+              <ul>
+                <li><strong>Control de Visitas</strong>: SaaS multi-tenant con marcación facial en el navegador y notificaciones por WhatsApp.</li>
+                <li><strong>Bot de encuestas por WhatsApp</strong> sobre la API oficial de Meta, con panel de resultados y exportación.</li>
+                <li>Prototipo de <strong>video analítica</strong>: conteo y seguimiento de personas sobre cámaras IP en tiempo real.</li>
               </ul>
             </div>
             <div class="exp now">
@@ -490,6 +503,18 @@
           </div>
 
           <div class="proj">
+            <div class="proj-head"><span class="proj-name">GRUMA AI</span><span class="proj-kind">ASISTENTE IA · VENTAS</span></div>
+            <p class="proj-desc">Asistente conversacional que responde preguntas de negocio con datos reales de ventas, presupuesto e inventario.</p>
+            <ul>
+              <li>Agente con Claude y <strong>tool use</strong>: consultas parametrizadas a SQL Server y a informes del CRM, sin SQL libre.</li>
+              <li>Resultados validados al peso contra los reportes oficiales; entiende fechas relativas ("semana pasada", "este mes").</li>
+              <li>Inicio de sesión único vía portal corporativo, auditoría de cada consulta y precálculo de informes pesados.</li>
+              <li>Desplegado como servicio Windows con cuenta gMSA, secretos cifrados (DPAPI) y respaldos automáticos.</li>
+            </ul>
+            <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Claude API</span><span class="tag">SQL Server</span><span class="tag">Windows Server</span></div>
+          </div>
+
+          <div class="proj">
             <div class="proj-head"><span class="proj-name">Módulo Financiero</span><span class="proj-kind">P&amp;G · GASTOS · FLUJO</span></div>
             <p class="proj-desc">Reportería financiera ejecutiva que consume la contabilidad de SIESA para dar visibilidad del resultado del negocio.</p>
             <ul>
@@ -530,9 +555,33 @@
             <ul>
               <li>Arquitectura multi-cliente (cliente → sedes → torres → unidades) con 6 roles y aislamiento de datos.</li>
               <li>Ingreso de empleados por <strong>código QR</strong> con auto-registro de entrada/salida en el kiosco.</li>
+              <li><strong>Marcación facial</strong>: reconocimiento en el navegador (ONNX); al servidor solo viaja el vector, nunca la imagen.</li>
+              <li>Avisos a residentes por <strong>WhatsApp</strong> con un número propio por sede (WAHA en Docker) y envíos masivos.</li>
               <li>Reservas de zonas comunes con flujo de aprobación y HTTPS en producción.</li>
             </ul>
-            <div class="tags"><span class="tag">PHP 8</span><span class="tag">Bootstrap 5</span><span class="tag">PostgreSQL 18</span><span class="tag">Apache</span><span class="tag">Ubuntu / VPS</span></div>
+            <div class="tags"><span class="tag">PHP 8</span><span class="tag">Bootstrap 5</span><span class="tag">PostgreSQL 18</span><span class="tag">ONNX</span><span class="tag">Docker</span><span class="tag">Ubuntu / VPS</span></div>
+          </div>
+
+          <div class="proj">
+            <div class="proj-head"><span class="proj-name">Bot de encuestas WhatsApp</span><span class="proj-kind">META CLOUD API · FREELANCE</span></div>
+            <p class="proj-desc">Encuestas de satisfacción automáticas por WhatsApp para un negocio de belleza, con panel de resultados.</p>
+            <ul>
+              <li>Webhook con firma verificada, mensajes idempotentes y flujo de preguntas con ramificaciones.</li>
+              <li>Consentimiento de datos (Ley 1581) antes de la encuesta y teléfonos guardados como hash.</li>
+              <li>Panel web: editor de encuestas, KPIs, gráficas por pregunta y exportación a CSV.</li>
+            </ul>
+            <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">WhatsApp Cloud API</span><span class="tag">Linux / VPS</span></div>
+          </div>
+
+          <div class="proj">
+            <div class="proj-head"><span class="proj-name">Video analítica</span><span class="proj-kind">VISIÓN POR COMPUTADOR</span></div>
+            <p class="proj-desc">Detección, seguimiento y conteo de personas sobre cámaras IP de tienda para medir aforo y tráfico.</p>
+            <ul>
+              <li>Inferencia en CPU con OpenVINO y seguimiento con ByteTrack sobre flujos RTSP de un NVR.</li>
+              <li>Comparación de modelos por FPS y calidad de detección; varias cámaras en paralelo en tiempo real.</li>
+              <li>Monitoreo en vivo (MJPEG), evidencias y conteo de entradas por zona.</li>
+            </ul>
+            <div class="tags"><span class="tag">Python</span><span class="tag">OpenVINO</span><span class="tag">ByteTrack</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">RTSP</span></div>
           </div>
 
           <div class="others">
@@ -565,6 +614,10 @@
               <div class="svc-meta"><span class="svc-time">2–4 fines de semana</span><span class="svc-price">desde $2.000.000</span></div></div>
             <div class="svc"><div class="svc-name">App interna a medida</div><p class="svc-desc">Aplicación web con usuarios, roles y reportes para un proceso de tu empresa.</p>
               <div class="svc-meta"><span class="svc-time">4–8 fines de semana</span><span class="svc-price">desde $4.000.000</span></div></div>
+            <div class="svc"><div class="svc-name">Bot de WhatsApp</div><p class="svc-desc">Encuestas, avisos o atención automática por WhatsApp con panel de resultados.</p>
+              <div class="svc-meta"><span class="svc-time">2–4 fines de semana</span><span class="svc-price">desde $2.500.000</span></div></div>
+            <div class="svc"><div class="svc-name">Asistente con IA</div><p class="svc-desc">Chat que responde preguntas de tu negocio con tus propios datos (ventas, inventario).</p>
+              <div class="svc-meta"><span class="svc-time">3–6 fines de semana</span><span class="svc-price">desde $3.500.000</span></div></div>
             <div class="svc"><div class="svc-name">Login con Microsoft 365</div><p class="svc-desc">Inicio de sesión con cuentas corporativas (Azure AD) en tu aplicación.</p>
               <div class="svc-meta"><span class="svc-time">1 fin de semana</span><span class="svc-price">desde $800.000</span></div></div>
             <div class="svc"><div class="svc-name">Optimización de base de datos</div><p class="svc-desc">Diagnóstico de consultas lentas, índices y ajustes en SQL Server o PostgreSQL.</p>
@@ -585,15 +638,17 @@
         <div class="panel anim">
           <h3><span class="n">05</span> Stack técnico</h3>
           <div class="stack-group"><div class="stack-cat">Backend</div><div class="stack-tags">
-            <span class="core">PHP 8</span><span class="core">Yii2 MVC</span><span>API REST</span><span>SQL avanzado</span></div></div>
+            <span class="core">PHP 8</span><span class="core">Yii2 MVC</span><span class="core">Python / FastAPI</span><span>API REST</span><span>SQL avanzado</span></div></div>
           <div class="stack-group"><div class="stack-cat">Frontend</div><div class="stack-tags">
-            <span class="core">Bootstrap 5</span><span>JS ES6+</span><span>Chart.js</span><span>AJAX</span></div></div>
+            <span class="core">Bootstrap 5</span><span>React</span><span>JS ES6+</span><span>Chart.js</span><span>AJAX</span></div></div>
           <div class="stack-group"><div class="stack-cat">Datos</div><div class="stack-tags">
             <span class="core">SQL Server</span><span class="core">PostgreSQL</span><span>SQLite</span><span>SIESA M6</span></div></div>
           <div class="stack-group"><div class="stack-cat">Cloud & M365</div><div class="stack-tags">
             <span class="core">Azure AD / OAuth2</span><span>Graph API</span><span>Teams</span><span>Power Automate</span><span>SharePoint</span><span>AWS RDS</span></div></div>
-          <div class="stack-group"><div class="stack-cat">Infra & IA</div><div class="stack-tags">
-            <span>IIS + Apache</span><span>Linux / Windows Server</span><span>Git</span><span class="core">IA / LLM · tool use</span></div></div>
+          <div class="stack-group"><div class="stack-cat">Infra</div><div class="stack-tags">
+            <span>IIS + Apache</span><span>Linux / Windows Server</span><span>Docker</span><span>Git</span></div></div>
+          <div class="stack-group"><div class="stack-cat">IA & automatización</div><div class="stack-tags">
+            <span class="core">Claude API · tool use</span><span>Agentes LLM</span><span class="core">WhatsApp Cloud API</span><span>OpenVINO</span><span>ONNX</span></div></div>
         </div>
 
         <div class="panel anim">
